@@ -980,6 +980,8 @@ def r_export(filename=None, name=None, print_passwords=False):
     conf_export(conftype="resolver", filename=filename, name=name,
                 print_passwords=print_passwords)
 
+resolver_manager.add_command('r_export', Command(r_export))
+
 
 def r_import(filename=None, cleanup=None, update=False):
     """
@@ -989,6 +991,8 @@ def r_import(filename=None, cleanup=None, update=False):
     """
     # Todo: Support the cleanup option to remove all resolvers which do not exist in the imported file
     conf_import(conftype="resolver", filename=filename, cleanup=cleanup, update=update)
+
+resolver_manager.add_command('r_import', Command(r_import))
 
 
 # unfortunately it is not possible in flask_script to add a command with a
